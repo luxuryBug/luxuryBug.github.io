@@ -9,7 +9,7 @@
 </head>
 <body>
 	<canvas id="canvas" width="1349" height="204"></canvas>
-  <div class="resume">
+  <div id="resume" class="resume">
     <section class="page">
       <hgroup>
         <h1 class="page-head"><a href="#" title="XXX的个人简历">郭洛的个人简历</a></h1>
@@ -171,10 +171,18 @@
   </div>
 	<script>
 // "use strict";
+var resume = document.getElementById('resume');
+var resumeH;
+  if(resume.currentStyle){
+    resumeH = parseInt(resume.currentStyle.height);
+  }else{
+    resumeH = parseInt(window.getComputedStyle(resume, null).height);
+    console.log( resumeH);
+  }
 var canvas = document.getElementById('canvas'),
   ctx = canvas.getContext('2d'),
   w = canvas.width = window.innerWidth-17,
-  h = canvas.height = 3000,
+  h = canvas.height = resumeH + 40,
 
   hue = 217,
   stars = [],
