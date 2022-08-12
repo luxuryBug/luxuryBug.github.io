@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-伪类选择器-元素位置-元素内容相关</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+    div {
+      margin: 5px;
+    }
+
+    .block {
+      margin: 10px auto;
+      border: 1px dashed #ccc;
+    }
+    .block-title {
+      font-weight: bold;
+    }
+
+    /* :empty */
+    .empty-content .empty-demo {
+      height: 20px;
+      background-color: #ccc;
+    }
+    .empty-content .empty-demo:empty {
+      background-color: plum;
+    }
+
+    /* :not */
+    .not-content .empty-demo {
+      height: 20px;
+      background-color: #ccc;
+    }
+    .not-content .empty-demo:not(:empty) {
+      background-color: plum;
+    }
+
+    /* 元素位置相关 */
+    .grid-content {
+      width: 400px;
+    }
+    .grid-content .fl-demo {
+      float: left;
+      margin: 5px;
+      width: 88px;
+      height: 88px;
+      border: 1px solid #ccc;
+      text-align: center;
+      line-height: 88px;
+    }
+    .grid-content .fl-demo:nth-of-type(4n),
+    .grid-content .fl-demo:nth-of-type(4n+1),
+    .grid-content .fl-demo:nth-of-type(-n+4),
+    .grid-content .fl-demo:nth-last-of-type(-n+4){
+      background-color: plum;
+    }
+
+    /* 1、选择前5个元素 */
+    /* .grid-content .fl-demo:nth-of-type(-n+5){
+      background-color: plum;
+    } */
+
+    /* 2、前8个元素开始 */
+    /* .grid-content .fl-demo:nth-of-type(n+8){
+      background-color: plum;
+    } */
+
+    /* 3、第6个到第7个 */
+    /* .grid-content .fl-demo:nth-of-type(n+6):nth-of-type(-n+7){
+      background-color: plum;
+    } */
+
+    /* .grid-content .fl-demo:not(:nth-of-type(-n+5),:nth-of-type(n+8)){
+      background-color: red;
+    }
+
+    .grid-content .fl-demo:not(:nth-of-type(-n+5)):not(:nth-of-type(n+8)){
+      background-color: green;
+    } */
+
+    /* :only-child */
+    .only-content .span-list>.link-tag:only-of-type {
+      background-color: plum;
+    }
+    .only-content .span-list>span:only-child {
+      background-color: red;
+    }
+
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="block">
+    <div class="block-title">1、`:empty`,内部包含空格也不可以（&nbsp;或者div内部的空格）</div>
+    <div class="block-content empty-content">
+      <div class="empty-demo"></div>
+      <div class="empty-demo"> </div>
+      <div class="empty-demo">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-title">2、`:not`,取反</div>
+    <div class="block-content not-content">
+      <div class="empty-demo"></div>
+      <div class="empty-demo"> </div>
+      <div class="empty-demo">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-title">3、绘制一个”3行四列的表格“,将边缘div背景设置为紫色，使用公式”an+b“进行移动</div>
+    <div class="block-content grid-content">
+      <div class="fl-demo">1</div>
+      <div class="fl-demo">2</div>
+      <div class="fl-demo">3</div>
+      <div class="fl-demo">4</div>
+      <div class="fl-demo">5</div>
+      <div class="fl-demo">6</div>
+      <div class="fl-demo">7</div>
+      <div class="fl-demo">8</div>
+      <div class="fl-demo">9</div>
+      <div class="fl-demo">10</div>
+      <div class="fl-demo">11</div>
+      <div class="fl-demo">12</div>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+
+  <div class="block">
+    <div class="block-title">4、`:only-child`:仅有一个子元素，`:only-of-type`:仅有一个指定类型的子元素</div>
+    <div class="block-content only-content">
+      <div class="span-list">
+        <span>百度</span>
+        <span>阿里</span>
+        <span>京东</span>
+      </div>
+      <div class="span-list">
+        <span>百度</span>
+      </div>
+      <div class="span-list">
+        <span>百度</span><em>em</em>
+      </div>
+      <div class="span-list">
+        <span class="link-tag">百度</span><span class="link-tag">span</span>
+      </div>
+      <div class="span-list">
+        <span class="link-tag">百度</span><em class="link-tag">em</em>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  </script>
+</body>
+</html>

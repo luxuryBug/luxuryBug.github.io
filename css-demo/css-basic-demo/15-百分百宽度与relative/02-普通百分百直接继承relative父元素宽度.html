@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            position: relative;
+            width: 500px;
+        }
+        .fu {
+            width: 400px;
+            background-color: #eee;
+        }
+        .zi {
+            position: absolute;
+            width: 50%;
+            background-color: plum;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="fu">
+            <div class="zi">
+                <p>段落</p>
+            </div>
+        </div>
+    </div>
+
+
+    <pre>
+        结论：绝对定位的元素使用百分比计算宽度的时候，始终是使用的相对定位的父元素的内容的宽度去计算
+    </pre>
+</body>
+</html>

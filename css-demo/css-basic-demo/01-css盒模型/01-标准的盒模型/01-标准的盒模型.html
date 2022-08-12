@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-标准的盒模型</title>
+</head>
+<style>
+    /* reset css */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<style id="myStyle">
+    /* ====page css start==== */
+    .box {
+        box-sizing: border-box;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        padding: 10px;
+        border: 5px solid #000;
+        margin: 10px;
+    }
+    /* ====page css end  ==== */
+</style>
+<script>
+    window.onload = function(){
+        document.querySelector('#myCode').innerHTML = document.querySelector('#myStyle').innerHTML;
+        document.querySelector('#realWidth').innerText = document.querySelector('.box').offsetWidth;
+        document.querySelector('#realHeight').innerText = document.querySelector('.box').offsetHeight;
+    }
+</script>
+<body>
+    <div class="box">
+    </div>
+
+    <hr>
+    <p>"box盒子"实际占据宽度“<span id="realWidth">0</span>px”,实际占据高度“<span id="realHeight">0</span>px”</p>
+    <p>代码如下：</p>
+    <pre id="myCode"></pre>
+
+    <hr>
+    <p>
+      总结：box-sizing是默认值，也就是“content-box”的时候，content-width=100px;
+      <br>
+      box-sizing设置为“border-box”的时候，content-width=100px - 5px*2 - 10px*2 = 70px;
+      <br>
+      box-sizing只有这两个属性值
+    </p>
+</body>
+</html>

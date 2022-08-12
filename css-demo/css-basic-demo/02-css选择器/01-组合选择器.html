@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-组合选择器</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+    div {
+      margin: 5px auto 10px;
+      background: #f0f0f0;
+    }
+
+    /* 直接子代选择器 */
+    /* div>div {
+      background-color: plum;
+    } */
+
+    /* 相邻兄弟选择器 */
+    /* div+div {
+      background-color: plum;
+    } */
+
+    /* 通用兄弟选择器 */
+    .div1~.div5 {
+      background-color: plum;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div>
+    <div class="div1">1</div>
+    <div>2
+      <!-- <div>2-1</div>
+      <div>2-2</div>
+      <div>
+        <div>2-3-1</div>
+        <div>2-3-2</div>
+        <div>2-3-3</div>
+      </div>
+      <div>2-4</div>
+      <div>2-5</div> -->
+    </div>
+    <div>3</div>
+    <div>4
+      <!-- <div>4-1</div>
+      <div>4-2</div>
+      <div>4-3</div>
+      <div>4-4</div>
+      <div>4-5</div> -->
+    </div>
+    <div class="div5">5</div>
+  </div>
+
+</body>
+</html>

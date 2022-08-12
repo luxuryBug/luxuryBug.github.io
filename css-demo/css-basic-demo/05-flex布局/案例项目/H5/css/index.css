@@ -1,0 +1,378 @@
+body {
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  font: normal 14px/1.5 TAhoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+  color: #000;
+  background: #f2f2f2;
+  overflow-x: hidden;
+  -webkit-tap-hignlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  /* 移动端建议使用：css3盒模型 */
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ====顶部搜索模块====start */
+.search-index {
+  display: flex;
+  /* 固定定位跟父级没有关系，它以屏幕为准，因此设置最大最小宽 */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  max-width: 540px;
+  min-width: 320px;
+  height: 44px;
+  background-color: #F6F6F6;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.search {
+  position: relative;
+  flex: 1;
+  height: 26px;
+  /* c3盒模型，去除边框的高度 */
+  line-height: 24px;
+  font-size: 12px;
+  color: #666;
+  padding-left: 28px;
+  margin: 8px 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+.search::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 100%;
+  background: url(../images/index-spirit.png) 4px 3px no-repeat;
+  background-size: 21px auto;
+}
+
+.user {
+  width: 44px;
+  height: 44px;
+  font-size: 12px;
+  text-align: center;
+  color: #51afed;
+}
+.user::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 2px auto 0;
+  border-radius: 11px;
+  background: url(../images/index-spirit.png) 0px -36px no-repeat;
+  background-size: 21px auto;
+  background-color: #51afed;
+}
+/* ====顶部搜索模块====end */
+
+/* ====焦点图模块====start */
+.focus {
+  padding-top: 44px;
+}
+.focus img {
+  /* 下面有5px的间隙 */
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+/* ====焦点图模块====end */
+
+/* ====局部导航栏模块====start */
+.local-nav {
+  display: flex;
+  height: 64px;
+  margin: 3px 4px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.local-nav li {
+  flex: 1;
+}
+.local-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.local-nav li [class^="local-nav-icon"] {
+  width: 32px;
+  height: 32px;
+  margin-top: 8px;
+  background: url(../images/local-nav-sprite2x@v7.15.png) 0 0;
+  background-size: 32px auto;
+}
+.local-nav li .local-nav-icon-icon2 {
+  background-position: 0 -32px;
+}
+.local-nav li .local-nav-icon-icon3 {
+  background-position: 0 -64px;
+}
+.local-nav li .local-nav-icon-icon4 {
+  background-position: 0 -96px;
+}
+.local-nav li .local-nav-icon-icon5 {
+  background-position: 0 -128px;
+}
+/* ====局部导航栏模块====end */
+
+/* ====主导航栏模块====start */
+nav {
+  background-color: #fff;
+  margin: 0 4px 3px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.nav-common {
+  display: flex;
+  height: 88px;
+}
+.nav-common:nth-child(2) {
+  margin: 3px 0;
+}
+.nav-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.nav-items a {
+  flex: 1;
+  line-height: 44px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 1px 1px rgba(0, 0, 0, .2)
+}
+.nav-items a:nth-child(1) {
+  border-bottom: 1px solid #fff;
+}
+.nav-items:nth-child(1) a {
+  border: 0;
+  background: url(../images/nav-items-hotel@v7.15.png) center 90% no-repeat;
+  background-size: 73px auto;
+}
+.nav-items:nth-child(-n+2) {
+  border-right: 1px solid #fff;
+}
+.nav-common:nth-child(1) {
+  /* 必须加私有前缀 */
+  background: -webkit-linear-gradient(left, #fa5b55, #ffd152);
+}
+.nav-common:nth-child(2) {
+  /* 必须加私有前缀 */
+  background: -webkit-linear-gradient(left, #4a90ed, #53bbed);
+}
+.nav-common:nth-child(3) {
+  /* 必须加私有前缀 */
+  background: -webkit-linear-gradient(left, #35c3a9, #6bd559);
+}
+.nav-common:nth-child(2) .nav-items:nth-child(1) a {
+  background-image: url(../images/nav-items-flight@v7.15.png);
+}
+.nav-common:nth-child(3) .nav-items:nth-child(1) a {
+  background-image: url(../images/nav-items-travel@v7.15.png);
+}
+/* ====主导航栏模块====end */
+
+/* ====侧导航栏入口模块====start */
+.subnav-entry {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 4px;
+  padding: 5px 0;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.subnav-entry li {
+  flex: 20%;
+}
+.subnav-entry a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.subnav-entry li [class^="subnav-entry-icon"] {
+  width: 28px;
+  height: 28px;
+  margin-top: 4px;
+  background: url(../images/subnav-entry-spirit2x@v7.33.png) 0 0 no-repeat;
+  background-size: 28px auto;
+}
+.subnav-entry li .subnav-entry-icon-icon2 {
+  background-position: 0 -28px;
+}
+.subnav-entry li .subnav-entry-icon-icon3 {
+  background-position: 0 -56px;
+}
+.subnav-entry li .subnav-entry-icon-icon4 {
+  background-position: 0 -84px;
+}
+.subnav-entry li .subnav-entry-icon-icon5 {
+  background-position: 0 -112px;
+}
+.subnav-entry li .subnav-entry-icon-icon6 {
+  background-position: 0 -140px;
+}
+.subnav-entry li .subnav-entry-icon-icon7 {
+  background-position: 0 -168px;
+}
+.subnav-entry li .subnav-entry-icon-icon8 {
+  background-position: 0 -196px;
+}
+.subnav-entry li .subnav-entry-icon-icon9 {
+  background-position: 0 -224px;
+}
+.subnav-entry li .subnav-entry-icon-icon10 {
+  background-position: 0 -252px;
+}
+/* ====侧导航栏入口模块====end */
+
+/* ====热门活动模块====start */
+.sales-box {
+  background-color: #fff;
+  margin: 4px;
+  border-radius: 8px;
+}
+.sales-hd {
+  position: relative;
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+}
+.sales-hd h2 {
+  text-indent: -999px;
+  overflow: hidden;
+  position: relative;
+}
+.sales-hd h2::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 5px;
+  width: 79px;
+  height: 15px;
+  background: url(../images/hot-bg.png) 0 0 no-repeat;
+  background-size: contain;
+}
+.more {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 12px;
+  color: #fff;
+  padding: 3px 20px 3px 10px;
+  background-color: pink;
+  border-radius: 10px;
+}
+.more::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid #fff;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+}
+.row {
+  display: flex;
+}
+.row a {
+  flex: 1;
+  border-bottom: 1px solid #fff;
+}
+.row a:nth-child(1) {
+  border-right: 1px solid #fff;
+}
+.row a img {
+  display: block;
+  width: 100%;
+}
+/* ====热门活动模块====end */
+
+/* ====底部工具栏模块====start */
+footer {
+  padding: 1px 0 5px 0;
+  background-image: -webkit-linear-gradient( bottom, transparent 50%, #dbdbdb 50% );
+  text-align: center;
+}
+.tool-cn {
+  display: flex;
+  height: 61px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #fff;
+}
+.tool-cn a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+.tool-cn a [class^="tool-cn-icon"] {
+  width: 28px;
+  height: 28px;
+  margin-top: 8px;
+  background: url(../images/tool-cn-spirit2x@v7.33.png) 0 0 no-repeat;
+  background-size: 28px auto;
+}
+.tool-cn a .tool-cn-icon-icon2 {
+  background-position: 0 -28px;
+}
+.tool-cn a .tool-cn-icon-icon3 {
+  background-position: 0 -56px;
+}
+.tool-ver {
+  color: #999;
+  text-align: center;
+}
+.tool-ver a {
+  color: #666;
+  font-size: 12px;
+}
+.tool-language {
+  position: relative;
+  padding-right: 12px;
+}
+.tool-language::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 3px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #666;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}
+footer p {
+  font-size: 12px;
+  color: #999;
+  padding: 5px 0;
+}
+/* ====底部工具栏模块====end */
+
+
+/* ====公共样式start==== */
+/* ====公共样式end==== */

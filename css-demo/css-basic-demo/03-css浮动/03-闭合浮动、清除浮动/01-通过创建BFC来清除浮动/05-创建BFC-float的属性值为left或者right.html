@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-创建BFC-float的属性值为left或者right</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+    .border {
+      border: 2px solid;
+      /* float: left; */
+    }
+
+    .float-pink {
+      width: 100px;
+      height: 50px;
+      background-color: pink;
+      float: left;
+    }
+
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="border">
+    <div class="float-pink"></div>
+  </div>
+
+  <p>
+    总结： 05-创建BFC-float的属性值为left或者right
+  </p>
+</body>
+</html>

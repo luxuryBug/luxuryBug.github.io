@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-利用浮动+BFC实现两列自适应布局</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+    html,body {
+      height: 100%;
+    }
+    .left {
+      width: 200px;
+      height: 100%;
+      background-color: blue;
+      float: left;
+    }
+
+    .content {
+      height: 100%;
+      background-color: #ccc;
+      overflow: hidden;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="left">
+    菜单.left
+  </div>
+  <div class="content">
+    03-利用浮动+BFC实现两列自适应布局.content
+    <div id="widthDesc"></div>
+  </div>
+
+  <script>
+    document.querySelector('#widthDesc').innerHTML = `
+      body的宽：${document.querySelector('body').offsetWidth}
+      left的宽：${document.querySelector('.left').offsetWidth}
+      content的宽：${document.querySelector('.content').offsetWidth}
+    `
+  </script>
+</body>
+</html>

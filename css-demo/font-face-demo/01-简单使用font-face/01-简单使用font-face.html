@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-简单使用font-face</title>
+    <style>
+        @font-face {
+            /* 圆字体 */
+            font-family: roundFont;
+            src: url('fontface/Sansation_Light.ttf')
+                ,url('https://www.runoob.com/try/demo_source/Sansation_Light.eot');  /* IE9 */
+        }
+
+        .f-ff-round {
+            font-family: roundFont;
+        }
+
+    </style>
+</head>
+<body>
+    <div>HELLO</div>
+    <div class="f-ff-round">HELLO</div>
+</body>
+</html>

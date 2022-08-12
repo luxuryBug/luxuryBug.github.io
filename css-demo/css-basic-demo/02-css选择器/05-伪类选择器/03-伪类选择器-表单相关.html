@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-伪类选择器-表单相关</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+    div {
+      margin: 5px;
+    }
+
+    .block {
+      margin: 10px auto;
+      border: 1px dashed #ccc;
+    }
+    .block-title {
+      font-weight: bold;
+    }
+
+    input:checked + label {
+      color: red;
+    }
+    /* 在一个div上放一个`checked`属性，是不能通过`:checked`伪类获得到的 */
+    *:checked {
+      color: blue;
+    }
+
+    *:default + label {
+      color: red;
+    }
+
+    *:default {
+      box-shadow: 0 -2px 0 red;
+    }
+
+    input:disabled {
+      box-shadow: 0 -2px 0 black;
+    }
+
+    *:enabled {
+      box-shadow: 0 -2px 0 green;
+    }
+
+    *:indeterminate {
+      box-shadow: 2px 0 0 yellow;
+    }
+
+    .range-content input:in-range {
+      box-shadow: 0 0 2px green;
+    }
+    .range-content input:out-of-range {
+      box-shadow: 0 0 2px red;
+    }
+
+    .invalid-content input:invalid {
+      box-shadow: 0 0 2px red;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <form action="">
+    <div></div>
+    <div class="block">
+      <div class="block-title">1、`:checked`选择器只能选择到表单元素，不能选择到div</div>
+      <div class="block-content" checked></div>
+    </div>
+    <div class="block">
+      <div class="block-title">2、`:enable`选择器选择启用的表单元素,`:disabled`选择器选择禁用的表单元素</div>
+      <div class="block-content"></div>
+    </div>
+    <div class="block">
+      <div class="block-title">3、`:default`选择器选择默认选中的表单元素值，只对checkbox、radio生效</div>
+      <div class="block-content"></div>
+    </div>
+    <div>
+      姓名: <input type="text" name="username">
+    </div>
+    <div>
+      性别: <input type="radio" name="sex" checked><label>男</label>  <input type="radio" name="sex"><label>女</label>  <input type="radio" name="sex" disabled><label>其他</label>
+    </div>
+    <div>
+      课程:
+      <select name="course">
+        <option value="" selected>请选择</option>
+        <option value="chinese">语文</option>
+        <option value="math">数学</option>
+        <option value="english">英语</option>
+      </select>
+    </div>
+    <div>
+      爱好: <input type="checkbox" name="hobby1" checked><label>唱歌</label>  <input type="checkbox" name="hobby2"><label>跳舞</label>  <input type="checkbox" name="hobby3" disabled><label>音乐</label>
+    </div>
+    <div>
+      备注:
+      <textarea name="remark" cols="30" rows="10"></textarea>
+    </div>
+    <div class="block">
+      <div class="block-title">4、`:indeterminate`选择器用于选择处于不确定状态的表单元素，如：checkbox、radio、progress</div>
+      <div class="block-content indeterminate-content">
+        <input type="checkbox">
+        <input type="radio">
+        <progress></progress>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">5、`:in-range`选择器用于选择值在指定范围内的元素，`:out-of-range`选择器选择值在指定范围之外的所有元素,不建议使用，IE edge上的表现是错误的</div>
+      <div class="block-content range-content">
+        <input type="number" min="5" max="10" value="7">
+        <input type="number" min="5" max="10" value="17">
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">6、`:invalid`选择器用于选择值不合法的，IE10以及IE10以上才支持</div>
+      <div class="block-content invalid-content">
+        <input type="number" min="5" max="10" value="7">
+        <input type="number" min="5" max="10" value="17">
+        <input type="email" value="17">
+      </div>
+    </div>
+
+    <div>
+      <input type="reset" value="重置">
+      <input type="submit" value="提交">
+    </div>
+  </form>
+  <script>
+    document.querySelectorAll('.indeterminate-content>*').forEach((ele)=>{
+      console.log(ele);
+      // 通过js设置为不确定状态
+      ele.indeterminate = true;
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-属性选择器-存在和值</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+    section p {
+      color: blue;
+      margin: 10px;
+    }
+
+    section > p {
+      background-color: yellow;
+    }
+
+    /* 该选择器选择包含attr属性的所有元素，无论attr的值为何，即使为空也没关系 */
+    /* p[data-attr] {
+      text-transform: uppercase;
+    } */
+
+
+    /* 该选择器选择包含attr属性并且属性值等于para的所有元素，多一个空格都不可以 */
+    /* p[data-attr="para"] {
+      text-transform: uppercase;
+    } */
+
+    /* 该选择器选择包含attr属性并且属性值包含para的所有元素，有空格是可以的 */
+    p[data-attr~="para"] {
+      text-transform: uppercase;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <section>
+    <p >Paragraph 1</p>
+    <p data-attr>Paragraph 2</p>
+    <p data-attr="para">Paragraph 3</p>
+    <p data-attr="para ">Paragraph 4</p>
+    <p data-attr=" para">Paragraph 5</p>
+    <p data-attr="para graph">Paragraph 6</p>
+    <p data-attr="graph para">Paragraph 7</p>
+    <p data-attr="para2">Paragraph 8</p>
+    <p data-attr="para3">Paragraph 9</p>
+  </section>
+
+  <div>
+    总结：
+  </div>
+</body>
+</html>

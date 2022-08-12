@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            background-color: #ccc;
+            width: 200px;
+        }
+        .toe {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box toe">
+        对象遵循常规流。top，right，bottom，left等属性不会被应用。 relative： 对象遵循常规流，并且参照自身在常规流中的位置通过top，right，bottom，left属性进行偏移时不影响常规流中的任何元素。 absolute：对象脱离常规流，使end
+    </div>
+</body>
+</html>

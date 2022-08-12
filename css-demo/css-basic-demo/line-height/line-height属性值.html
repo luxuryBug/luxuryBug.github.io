@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .parent {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .demo{
+        text-align:center;
+        border:1px solid blue; 
+        background:pink;
+
+        /* font-size: 40px <=> 20px*2 */
+        font-size: 2em;	
+
+        /* (1) 设置固定的行间距。 */
+        /* line-height: 20px; <=> 20px  */
+        /* line-height: 20px; 	 */
+        line-height: 4cm; 	
+
+
+        /* (2) 设置数字，此数字会与当前的字体尺寸相乘来设置行间距。em很特殊，这里相当于百分数 */
+        /* line-height: 30px; <=> 40px*0.75  */
+        /* line-height: 0.75; 		  */
+
+        /* line-height: 30px; <=> 40px*0.75  */
+        /* line-height: 75%; 	 */
+
+        /* line-height: 30px; <=> 40px*0.75  */
+        /* line-height: 0.75em; 		  */	 
+
+        /* (3) line-height: normal;  */
+        /* line-height: normal; 		 */
+
+        /* (4) line-height: normal | 30px; 使用父元素的值 */
+        /* line-height: inherit; 		 	  */
+
+
+	 
+	}
+</style>
+<body>
+    <div class="parent">
+        <p>父级</p>
+        <div class="demo">测试</div>
+    </div>
+</body>
+</html>

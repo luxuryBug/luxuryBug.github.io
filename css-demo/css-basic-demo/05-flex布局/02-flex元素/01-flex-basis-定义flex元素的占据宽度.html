@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+
+    .flex {
+      display: flex;
+      background-color: #f0f0f0;
+    }
+
+    .flex-item {
+      color: red;
+
+      /* 12.5*8 = 100 */
+      /* flex-basis: 12.5%; */
+      flex-basis: 25%;
+    }
+
+    .flex-item:nth-of-type(odd) {
+      background-color: plum;
+    }
+    .flex-item:nth-of-type(even) {
+      background-color: pink;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="flex">
+    <div class="flex-item">子元素A1</div>
+    <div class="flex-item">子元素B2,子元素B2,子元素B2</div>
+    <div class="flex-item">子元素C3</div>
+    <div class="flex-item">子元素D4</div>
+    <div class="flex-item">子元素E5</div>
+    <div class="flex-item">子元素F6</div>
+    <div class="flex-item">子元素G7</div>
+    <div class="flex-item">子元素H8</div>
+  </div>
+</body>
+</html>

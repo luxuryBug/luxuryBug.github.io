@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-getClientRects和getBoundingClientRect的区别</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      background-color: blue;
+    }
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span>我是文本1</span>
+    <span>我是文本2</span>
+  </div>
+  <script>
+    var boxDom = document.querySelector('.box');
+    // DOMRect
+    boxDom.getBoundingClientRect();
+    // DOMRectList
+    boxDom.getClientRects();
+  </script>
+</body>
+</html>

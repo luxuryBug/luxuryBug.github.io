@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-中文楷体签名font-face</title>
+    <style>
+        @font-face {
+            /* 圆字体 */
+            font-family: zylhFont;
+            src: url('fontface/ZhongYingLiHeTieShanYingBiXingKai-1.ttf')
+                ,url('fontface/ZhongYingLiHeTieShanYingBiXingKai-1.woff');  /* IE9 */
+        }
+
+        .f-ff-zylh {
+            font-family: zylhFont;
+            font-size: 36px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        签名：<input type="text" value="张三" oninput="document.querySelector('#text').innerHTML = this.value">
+    </div>
+    <div id="text" class="f-ff-zylh">张三</div>
+
+    <div style="margin-top: 100px;">
+        去<a href="https://www.fonts.net.cn/">字体天下</a>下载更多字体
+    </div>
+</body>
+</html>

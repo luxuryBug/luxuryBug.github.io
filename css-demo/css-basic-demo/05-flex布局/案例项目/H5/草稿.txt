@@ -1,0 +1,78 @@
+
+移动端页面+ flex布局
+
+分析页面布局
+1、先行后列
+2、标注一些特殊的模块
+
+
+##知识点
+精灵图，需要两倍缩放
+背景颜色线性渐变 -webkit-linear-gradient(left,red,blue);  //需要加私有前缀，默认是从上往下
+静态图片放在images/，动态图片放在upload/
+小标题进行语义化，但是不展示 .f-hth {text-indent: -999px; overflow:hidden;}
+
+##公共大小、色号
+边框颜色：#dbdbdb
+模块的左右margin: 4px
+模块的上下margin: 3px
+圆角 8px
+
+
+## 拆解页面模块(5个):
+### 顶部搜索 search-index
+  高度44px
+
+### 焦点图模块 focus
+  高度100px
+
+### 局部导航栏 local-nav
+	高度64px
+	ul>li>a>span+span
+	a>span+span
+	上图片（32px、mt8px）+下文字(#222 12px)
+	span.local-nav-icon+span
+	span.local-nav-icon-icon1 + span.local-nav-icon-icon2
+	[class^="local-nav-icon"]
+	background-position
+
+### 导航 nav
+	高度-内容撑起，lh44px
+	3行 .nav-common*3 确定父容器样式，拉开间距
+	第一行 (height:88px)
+	   3列
+		.nav-items 前两个有白色边框
+		.nav-items:nth-child(2) > a*2 (fs14px、 文字阴影)
+
+### 侧导航栏入口 subnav-entry
+	高度-内容撑起
+	ul>li*10 flex换行 flex: 20%;
+	a
+	上图片（28px、mt4px）+下文字(#222 12px)
+
+
+### 热门活动 sales-box
+	标题+内容
+	sales-hd+sales-bd
+	sales-hd
+	  下边框、height44px
+	  H2+a.more
+	    H2
+	    79*15,伪类放置一张图片
+	    a.more posa  p 3px 20px 3px 10px;
+		    三角，用伪元素实现
+	sales-bd
+	  .row*3 3行
+		a>img * 2
+
+### 底部 footer
+  .tool-cn
+    flex、column、span.icon+span
+      span.icon
+        28px*28px
+  .tool-ver
+  p
+
+
+
+

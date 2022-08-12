@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-文字类块级元素内部不能放置块级元素</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <p>
+    <div>div的文字</div>
+  </p>
+
+  <p>
+    <p>p的文字</p>
+  </p>
+
+  <div>
+    代码上写了3个闭合的p标签，但实际呢？
+    <button onclick="alert(document.querySelectorAll('p').length)">页面上几个p标签</button>
+    <br />
+    因为什么呢？
+    <br />
+    因为文字类的块级元素内部<strong>不能</strong>放置块级元素，建议<strong>只放置文字</strong>
+  </div>
+</body>
+</html>

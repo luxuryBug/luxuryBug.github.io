@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-父子元素在垂直方向上发生margin重叠-老大-margin-top</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+    .parent {
+      background-color: blue;
+      margin-top: 20px;
+    }
+
+    .child {
+      width: 90px;
+      height: 90px;
+      border: 5px solid #000;
+
+      background-color: red;
+      margin-top: 10px;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">老大</div>
+    <div>老二</div>
+    <div>老三</div>
+    <div>老幺</div>
+  </div>
+
+  <hr style="margin-top: 40px" />
+  <div>
+    <button id="calcParentMarginBtn">父盒距离视窗的间距</button>
+    <br />
+    <button id="calcMarginBtn">父盒与子盒的间距</button>
+  </div>
+
+  <script>
+    var boxParent = document.querySelector('.parent');
+    var boxChild = document.querySelector('.child');
+
+    document.querySelector('#calcParentMarginBtn').onclick = function(){
+      var margin = boxParent.getBoundingClientRect().top;
+      window.alert(margin);
+    }
+
+    document.querySelector('#calcMarginBtn').onclick = function(){
+      var margin = boxChild.getBoundingClientRect().top - boxParent.getBoundingClientRect().top;
+      window.alert(margin);
+    }
+  </script>
+
+</body>
+</html>

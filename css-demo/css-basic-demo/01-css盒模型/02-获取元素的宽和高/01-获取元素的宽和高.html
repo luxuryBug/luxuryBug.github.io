@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取元素的宽和高</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style id="myStyle">
+    /* ====page css start==== */
+    .box {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      padding: 10px;
+      border: 5px solid #000;
+      margin: 10px;
+    }
+
+    ol {
+      padding-left: 40px;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<script>
+  window.onload = function () {
+
+    function getComputedSize(dom){
+      var result = {
+        width: 0,
+        height: 0
+      };
+      if(window.getComputedStyle){
+        result.width = window.getComputedStyle(dom).width;
+        // 100px
+        result.height = window.getComputedStyle(dom).height;
+
+        // IE9以上支持
+        // dom.getBoundingClientRect().width/height
+        // 100
+      }else{
+        // 兼容IE
+        result.width = dom.currentStyle.width;
+        result.height = dom.currentStyle.height;
+      }
+      return result;
+    }
+
+    document.querySelector('#printBtn').onclick = function(){
+      var boxDom = document.querySelector('.box');
+      var offsetWidth = boxDom.offsetWidth;
+      var offsetHeight = boxDom.offsetHeight;
+      // 获得最终渲染后的宽、高
+      var computedObj = getComputedSize(boxDom);
+      var html = `
+      offsetWidth:${offsetWidth}<br />
+      offsetHeight:${offsetHeight}<br />
+      computedWidth:${computedObj.width}<br />
+      computedHeight:${computedObj.height}<br />
+      `;
+      document.querySelector('#result').innerHTML = html;
+    }
+  }
+</script>
+
+<body>
+  <div id="box" class="box"></div>
+  <div>
+    <button id="printBtn">输出宽高</button>
+  </div>
+  <div id="result">
+
+  </div>
+
+  <hr>
+  <!-- <p>"box盒子"实际占据宽度“<span id="realWidth">0</span>px”,实际占据高度“<span id="realHeight">0</span>px”</p> -->
+
+  <hr>
+  <div>
+    <h5>总结</h5>
+    <div>
+      缩放“100%”的时候，offsetWidth与offsetHeight都是130px；缩放“75%”的时候，offsetWidth（131px）与offsetHeight（129px）,为什么？
+      <br>
+      content-box,computedWidth:100px;
+      <br>
+      border-box,computedWidth:100px;
+      <br>
+    </div>
+    <ol>
+      <li>dom.style.width/height只能取到行内样式的宽和高，style标签和link外链中的样式取不到</li>
+    </ol>
+  </div>
+</body>
+
+</html>

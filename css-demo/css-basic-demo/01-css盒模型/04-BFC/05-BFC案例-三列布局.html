@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-BFC案例-三列布局</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+    #layout {
+      background: red;
+    }
+    .left {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background: pink;
+    }
+    .right {
+      float: right;
+      width: 100px;
+      height: 110px;
+      background: #ccc;
+    }
+    .center {
+      height: 80px;
+      background-color: plum;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <section id="layout">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+  </section>
+</body>
+</html>

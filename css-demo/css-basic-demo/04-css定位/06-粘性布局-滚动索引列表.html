@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+    .sticky-list {
+      position: relative;
+      height: 400px;
+      overflow: scroll;
+    }
+    .sticky-list dt {
+      position: sticky;
+      top: 0;
+      background-color: #ccc;
+    }
+    /* .sticky-list dt:nth-of-type(2) {
+      top: 22px;
+    } */
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <h1>使用sticky来创建一个索引列表</h1>
+  <dl class="sticky-list">
+    <dt>A</dt>
+    <dd>A1</dd>
+    <dd>A2</dd>
+    <dd>A3</dd>
+    <dd>A4</dd>
+    <dd>A5</dd>
+    <dd>A6</dd>
+
+    <dt>B</dt>
+    <dd>B1</dd>
+    <dd>B2</dd>
+    <dd>B3</dd>
+    <dd>B4</dd>
+    <dd>B5</dd>
+    <dd>B6</dd>
+
+    <dt>C</dt>
+    <dd>C1</dd>
+    <dd>C2</dd>
+    <dd>C3</dd>
+    <dd>C4</dd>
+    <dd>C5</dd>
+    <dd>C6</dd>
+
+    <dt>D</dt>
+    <dd>D1</dd>
+    <dd>D2</dd>
+    <dd>D3</dd>
+    <dd>D4</dd>
+    <dd>D5</dd>
+    <dd>D6</dd>
+  </dl>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script> -->
+  <title>01-margin与容器的尺寸</title>
+</head>
+<style>
+  /* reset css */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<style>
+  /* ====page css start==== */
+  .parent {
+    background-color: #ccc;
+  }
+
+  .child {
+    height: 100px;
+    background: red;
+  }
+
+  /* ====page css end  ==== */
+</style>
+
+<body>
+  <div class="parent">
+    <div class="child">子元素</div>
+  </div>
+  <br>
+  <div>
+    设置子元素的margin值：<input id="newMargin" type="text"><button id="setBtn">设置</button>
+  </div>
+  <br>
+  <button id="printBtn">输出子元素的宽度</button>
+  <div class="print-container">
+  </div>
+
+  <hr>
+  <pre class="ps">
+    ps: 直接用替换html文本的方式，会清除掉之前的html元素绑定的事件吗？
+    会，因为更换html，就是更换文本，无论是使用innerHtml还是jq的html()
+    想要实现：复制节点，并且要复制事件：必须满足以下两点：
+    1、jq的clone(true)
+    2、事件是使用jq的绑定方法绑定的
+  </pre>
+
+  <script>
+    window.onload = function () {
+      var $ = function (selector) {
+        return document.querySelector(selector);
+      }
+
+      // 页面打开的时候，进行调用
+      // printMargin();
+
+      /*
+      * 原生js获取元素样式
+      * ele
+      * ele
+      * isPseudoClass: 获取的是元素的伪类？？？
+      */
+      function getStyle(ele, name, isPseudoClass) {
+        if (window.getComputedStyle) {
+          /*
+              window.getComputedStyle(ele, null)方法用于获取元素的样式
+              该方法有两个参数
+              1.要获取的元素名
+              2.伪类 一般都写null
+              IE8及以下没有该方法 会出现undefined
+          */
+          return window.getComputedStyle(ele, isPseudoClass)[name];
+        } else {
+          return ele.currentStyle[name];
+        }
+      }
+
+      // 输出margin
+      function printMargin() {
+        var margin = getStyle($('.child'), 'margin');
+        var clientWidth = $('.child').clientWidth;
+        var desc = `
+                    <p>当子元素的margin是  ”${margin}“  的时候，子元素的可视宽度是  ”${clientWidth}“  </p>
+                `;
+        $('.print-container').innerHTML += desc;
+      }
+
+      // 设置margin
+      // Uncaught TypeError: Illegal invocation
+      // 怎么直接$ 就报错
+      $('#setBtn').onclick = function () {
+        var margin = $('#newMargin').value;
+        $('.child').style.margin = margin;
+      }
+
+      $('#printBtn').onclick = function () {
+        printMargin();
+      }
+    }
+
+  </script>
+</body>
+
+</html>

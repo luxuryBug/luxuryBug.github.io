@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04-伪类选择器-a链接相关</title>
+  <style>
+    /* reset css */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <style>
+    /* ====page css start==== */
+
+    div {
+      margin: 5px;
+    }
+
+    .block {
+      margin: 10px auto;
+      border: 1px dashed #ccc;
+    }
+    .block-title {
+      font-weight: bold;
+    }
+
+    a:link {
+      color: black;
+    }
+    a:visited {
+      color: green;
+    }
+    a:active {
+      color: yellow;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    /* ====page css end  ==== */
+  </style>
+</head>
+<body>
+  <div class="block">
+    <div class="block-title">1、a链接的状态</div>
+    <div class="block-content indeterminate-content">
+      <a href="http://www.baidu.com">百度1</a>
+      <a href="http://www.baidu2.com">百度2</a>
+      <a href="http://www.baidu3.com">百度3</a>
+      <a href="http://www.baidu4.com">百度4</a>
+    </div>
+  </div>
+  <script>
+  </script>
+</body>
+</html>

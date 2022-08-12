@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fu {
+            width: 400px;
+            background-color: #eee;
+
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+
+        .zi {
+            width: 50%;
+            background-color: plum;
+        }
+    </style>
+</head>
+<body>
+    <div class="fu">
+        <div class="zi">
+            <p>段落</p>
+        </div>
+    </div>
+
+    <pre>
+        box-sizing: content-box;
+        width: 400px;padding: 0 50px;
+        width: 50%;
+        => 200px; 内容的宽度400*0.5
+
+
+        box-sizing: border-box;
+        width: 400px;padding: 0 50px;
+        width: 50%;
+        => 150px; 内容的宽度300*0.5
+
+        结论：使用百分比计算宽度的时候，始终是使用的内容的宽度去计算
+    </pre>
+</body>
+</html>

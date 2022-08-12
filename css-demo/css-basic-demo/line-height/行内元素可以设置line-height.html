@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {margin: 0; padding: 0;}
+    .block {
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        background-color: red;
+    }
+    .inline {
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        background-color: green;
+    }
+</style>
+<body>
+    <div class="block">这是一个块级元素</div>
+    <div>
+        <span class="inline">这是一个行内元素</span>
+    </div>
+
+    <div>
+        <span class="inline">hug</span>
+    </div>
+    
+
+    <p>
+        结论：
+        1、行内元素设置高无效，即使在chorme-css-computed查看到具体高度（40px），也没用，在文档流上占满的高度，仍然由内容字体大小和行高决定；
+        他的高度被字体大小和行高所决定
+        2、行内元素可以设置行高，并且拥有默认行高
+        ps: 字体大小设置为20px，但是审查元素，元素高度为28px，为什么？ 因为该元素的line-height: normal;(normal: 正常、正规、标准的)
+        浏览器为该元素设置了一个合理的行高（字体大小的1.4倍）
+        ps2:自己设置了一个行高20px，太小不生效，因为会使用line-height
+    </p>
+</body>
+</html>

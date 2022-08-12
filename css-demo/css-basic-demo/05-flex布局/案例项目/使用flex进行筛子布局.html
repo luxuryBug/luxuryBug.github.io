@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width,user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>使用flex进行筛子布局</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    margin: 20px 10px;
+  }
+
+  hr {
+    border: 0;
+    margin: 10px auto;
+  }
+
+  h3 {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .box {
+    width: 90px;
+    height: 90px;
+    background-color: #f6f6f6;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    margin: 0 auto;
+  }
+
+  .item {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    /* background-color: #ccc; */
+  }
+
+  .item::before {
+    position: absolute;
+    content: '';
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 80%;
+    background-color: #333;
+  }
+
+  .flex {
+    display: flex;
+  }
+  .flex-col {
+    flex: 1;
+  }
+  .flex-row {
+    /* 独占一行 */
+    flex-basis: 100%;
+  }
+  .flex.column {
+    flex-direction: column;
+  }
+  .flex.wrap {
+    flex-wrap: wrap;
+  }
+
+  /* 主轴相关 */
+  .flex.h-center {
+    justify-content: center;
+  }
+  .flex.h-end {
+    justify-content: flex-end;
+  }
+  .flex.h-sp-between {
+    justify-content: space-between;
+  }
+
+  /* 侧轴相关 */
+  /* 侧轴单行 */
+  .flex.v-center {
+    align-items: center;
+  }
+  .flex.v-end {
+    align-items: flex-end;
+  }
+
+  /* 侧轴多行 */
+  .flex.mul-v-start {
+    align-content: start;
+  }
+  .flex.mul-v-center {
+    align-content: center;
+  }
+  .flex.mul-v-end {
+    align-content: end;
+  }
+  .flex.mul-v-sp-between {
+    align-content: space-between;
+  }
+
+  /* flex元素相关 */
+  .as-center {
+    align-self: center;
+  }
+  .as-end {
+    align-self: flex-end;
+  }
+  .basic100 {
+    flex-basis: 100%;
+  }
+
+</style>
+
+<body>
+  <div class="container flex">
+    <div class="flex-col">
+      <h3>1点</h3>
+      <div class="box flex">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-center">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-end">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex v-center">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-center v-center">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-end v-center">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex v-end">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-center v-end">
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-end v-end">
+        <span class="item"></span>
+      </div>
+    </div>
+
+    <div class="flex-col">
+      <h3>2点</h3>
+      <div class="box flex">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex h-sp-between">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column h-sp-between">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column h-sp-between v-center">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column h-sp-between v-end">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column">
+        <span class="item"></span>
+        <span class="item as-center"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column h-sp-between">
+        <span class="item"></span>
+        <span class="item as-end"></span>
+      </div>
+
+      <hr>
+      <!-- GOOD! -->
+      <div class="box flex h-sp-between">
+        <span class="item"></span>
+        <span class="item as-end"></span>
+      </div>
+
+    </div>
+
+    <div class="flex-col">
+      <h3>3点</h3>
+      <div class="box flex">
+        <span class="item"></span>
+        <span class="item as-center"></span>
+        <span class="item as-end"></span>
+      </div>
+    </div>
+
+    <div class="flex-col">
+      <h3>4点</h3>
+      <div class="box flex wrap mul-v-start">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex wrap mul-v-sp-between h-end">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex wrap mul-v-sp-between">
+        <div class="flex-row flex h-sp-between">
+          <span class="item"></span>
+          <span class="item"></span>
+        </div>
+        <div class="flex-row flex h-sp-between">
+          <span class="item"></span>
+          <span class="item"></span>
+        </div>
+      </div>
+
+      <hr>
+      <!-- GOOD! -->
+      <div class="box flex h-sp-between">
+        <div class="column flex h-sp-between">
+          <span class="item"></span>
+          <span class="item"></span>
+        </div>
+        <div class="column flex h-sp-between">
+          <span class="item"></span>
+          <span class="item"></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex-col">
+      <h3>6点</h3>
+      <div class="box flex wrap mul-v-sp-between">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex column wrap mul-v-sp-between">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+      <hr>
+      <div class="box flex wrap">
+        <div class="flex-row flex">
+          <span class="item"></span>
+          <span class="item"></span>
+          <span class="item"></span>
+        </div>
+        <div class="flex-row flex h-center">
+          <span class="item"></span>
+        </div>
+        <div class="flex-row flex h-sp-between">
+          <span class="item"></span>
+          <span class="item"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-col">
+      <h3>9点</h3>
+      <div class="box flex wrap">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
